@@ -2,22 +2,23 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <header>
+    <header className=" bg-sky-800 text-white ">
 
-        <div className=' text-left ml-4 mt-4 '> 
-        <p> AQUi va la imagen
-        </p>
+        <div className='  '> 
+        <img src="logo.png" alt="Logo" className="w-24 h-24"/>
         </div>
 
-        <div className=' text-center font-black text-3xl'>
+        <div className='text-center font-black text-3xl'>
         <h1> HYDRO PROTECT </h1>
         <p>Cuidando {' '}
-        <span className=' text-lg text-red-950'>  el Agua desde casa </span> </p>
+        <span className=' text-lg text-red-600'>  el Agua desde casa </span> </p>
         </div>
 
 
-        <div className='mt-5 text-center rounded-lg bg-slate-500 text-white p-6'>
-            <button className=' mr-10'> Home </button>{''} <button className=' mr-10'> Sensores</button>  {" "} <button> Inicia Sesion</button>        
+        <div className='mt-5 text-center rounded-lg bg-slate-800 text-white p-6 flex justify-center '>
+            <button className=' mx-10 py-2 px-4 rounded-2xl  bg-white text-blue-500'> Home </button>
+            <button className=' mx-10 py-2 px-4 rounded-2xl bg-white text-blue-500'> Sensores</button>
+            <button className=' mx-10 py-2 px-4 rounded-2xl bg-white text-blue-500'> Inicia Sesion</button>        
         </div>
 
     </header>
