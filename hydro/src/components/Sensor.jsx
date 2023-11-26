@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+// Sensor.jsx
+import React from 'react'
 
 const Sensor = ({nombre, valor}) => {
   return (
