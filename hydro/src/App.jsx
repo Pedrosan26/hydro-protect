@@ -15,10 +15,10 @@ function App() {
 
   useEffect(() => {
     const fetchSensorData = async () => {
-      const phResponse = await axios.get('http://localhost:3100/api/getLogsPh/3');
-      const timeResponse = await axios.get('http://localhost:3100/api/getLogsTime/4');
-      const flujoResponese= await axios.get('http://localhost:3100/api/getLogsFlujo/2');
-      const ultraSonico= await axios.get('http://localhost:3100/api/getLogsUltraSonico/6');
+      const phResponse = await axios.get('http://10.22.193.4:3100/api/getLogsPh/2');
+      const timeResponse = await axios.get('http://10.22.193.4:3100/api/getLogsTime/3');
+      const flujoResponese= await axios.get('http://10.22.193.4:3100/api/getLogsFlujo/1');
+      const ultraSonico= await axios.get('http://10.22.193.4:3100/api/getLogsUltraSonico/5');
   
       setSensors(sensors => sensors.map(sensor => {
         if (sensor.nombre === 'PH' && phResponse.data.data && phResponse.data.data.length > 0) {
@@ -27,12 +27,12 @@ function App() {
         } else if (sensor.nombre === 'Reloj' && timeResponse.data.data && timeResponse.data.data.length > 0) {
           const lastTimeLog = timeResponse.data.data[timeResponse.data.data.length - 1];
           return {...sensor, valor: lastTimeLog.time};
-        } else if (sensor.nombre === 'Flujo' && timeResponse.data.data && timeResponse.data.data.length > 0) {
-          const lastTimeLog = timeResponse.data.data[timeResponse.data.data.length - 1];
-          return {...sensor, valor: lastTimeLog.flujo};
-        }else if (sensor.nombre === 'Cantidad de Agua' && timeResponse.data.data && timeResponse.data.data.length > 0) {
-          const lastTimeLog = timeResponse.data.data[timeResponse.data.data.length - 1];
-          return {...sensor, valor: lastTimeLog.dist_cm};
+        } else if (sensor.nombre === 'Flujo' && flujoResponese.data.data && flujoResponese.data.data.length > 0) {
+          const lastFlujoLog = flujoResponese.data.data[flujoResponese.data.data.length - 1];
+          return {...sensor, valor: lastFlujoLog.flujo};
+        }else if (sensor.nombre === 'Cantidad de Agua' && ultraSonico.data.data && ultraSonico.data.data.length > 0) {
+          const lastUltraLog = ultraSonico.data.data[ultraSonico.data.data.length - 1];
+          return {...sensor, valor: lastUltraLog.dist_cm};
         }
           else {
           return sensor;
@@ -51,11 +51,18 @@ function App() {
   }, []);
   
 
+  // Divide los sensores en dos arrays
+  const topSensors = sensors.slice(0, 2);
+  const bottomSensors = sensors.slice(2);
+
   return (
     <div className='container mx-auto'>
       <Header/> 
       <div className='mt-12 md:flex justify-center space-x-24'>
-        {sensors.map(sensor => <Sensor key={sensor.nombre} nombre={sensor.nombre} valor={sensor.valor}/>)}
+        {topSensors.map(sensor => <Sensor key={sensor.nombre} nombre={sensor.nombre} valor={sensor.valor}/>)}
+      </div>
+      <div className='mt-12 md:flex justify-center space-x-24'>
+        {bottomSensors.map(sensor => <Sensor key={sensor.nombre} nombre={sensor.nombre} valor={sensor.valor}/>)}
       </div>
     </div>
   );
