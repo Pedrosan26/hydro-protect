@@ -1,11 +1,12 @@
 import React from 'react'
+import Logo from '../public/Logo.jpg'
 
 const Header = () => {
   return (
     <header className=" bg-sky-800 text-white ">
 
-        <div className='  '> 
-        <img src="logo.png" alt="Logo" className="w-24 h-24"/>
+        <div className='w-28 h-28'> 
+          <img src={Logo} alt="Logo" className='object-contain w-full h-full' />
         </div>
 
         <div className='text-center font-black text-3xl'>
