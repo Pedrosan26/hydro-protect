@@ -18,10 +18,10 @@ function App() {
     // Define una función async para llamar a la API y actualizar el estado
     //axios es una liberia que nos permite hacer peticiones a una api utilizando su metodo get
     const fetchSensorData = async () => {
-      const phResponse = await axios.get('http://10.22.193.4:3100/api/getLogsPh/2');
-      const timeResponse = await axios.get('http://10.22.193.4:3100/api/getLogsTime/3');
-      const flujoResponese= await axios.get('http://10.22.193.4:3100/api/getLogsFlujo/1');
-      const ultraSonico= await axios.get('http://10.22.193.4:3100/api/getLogsUltraSonico/5');
+      const phResponse = await axios.get('http://ip:3100/api/getLogsPh/2');
+      const timeResponse = await axios.get('http://ip:3100/api/getLogsTime/3');
+      const flujoResponese= await axios.get('http:/ip:3100/api/getLogsFlujo/1');
+      const ultraSonico= await axios.get('http://ip:3100/api/getLogsUltraSonico/5');
   
       //hacemos un map para recorrer el arreglo de sensores y actualizar su valor, el valor que se actualiza es el ultimo valor del arreglo de logs
       setSensors(sensors => sensors.map(sensor => {

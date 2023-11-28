@@ -18,8 +18,8 @@ const char* password = "spotless.magnetic.bridge";
 HTTPClient httpClient;
 WiFiClient wClient;
 
-String URLPh = "http://10.22.193.4:3100/api/logPh/2";
-String URLReloj = "http://10.22.193.4:3100/api/logTime/3";
+String URLPh = "http://ip:3100/api/logPh/2";
+String URLReloj = "http://ip:3100/api/logTime/3";
 
 // valores promedios del sensor Ph
 unsigned long int avgValue;  // Almacena el valor promedio de la retroalimentación del sensor
