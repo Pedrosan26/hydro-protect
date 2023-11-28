@@ -1,5 +1,5 @@
 # hydro-protect
 This project is implemented with IoT. Our purpose is to provide residents with access to clean water and, additionally, to have control and regulation of it.
 
-Developers: 
-@PedroSan26
+Colaborated by: <br/>
+@Pedrosan26 <br/>
